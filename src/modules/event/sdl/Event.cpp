@@ -426,9 +426,11 @@ Message *Event::convert(const SDL_Event &e)
 		}
 		SDL_free(e.drop.file);
 		break;
-	case SDL_QUIT:
 	case SDL_APP_TERMINATING:
-		msg = new Message("quit");
+		vargs.emplace_back(0);
+		vargs.emplace_back(true);
+	case SDL_QUIT:
+		msg = new Message("quit", vargs);
 		break;
 	case SDL_APP_LOWMEMORY:
 		msg = new Message("lowmemory");

@@ -597,7 +597,13 @@ function love.run()
 			love.event.pump()
 			for name, a,b,c,d,e,f in love.event.poll() do
 				if name == "quit" then
-					if not love.quit or not love.quit() then
+					local result = nil
+
+					if love.quit then
+						result = love.quit(b)
+					end
+
+					if b or not result then
 						return a or 0
 					end
 				end
