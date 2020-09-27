@@ -1747,6 +1747,12 @@ if(MSVC)
 		extra/windows/love.rc
 		extra/windows/love.ico
 	)
+
+	# CMake < 3.4 doesn't understand .manifest file
+	# so only add it when we're running CMake 3.4 or later.
+	if(NOT CMAKE_VERSION VERSION_LESS 3.4.0)
+		set(LOVE_RC ${LOVE_RC} extra/windows/love.manifest)
+	endif()
 endif()
 
 add_library(${LOVE_LIB_NAME} SHARED ${LOVE_LIB_SRC} ${LOVE_RC})
