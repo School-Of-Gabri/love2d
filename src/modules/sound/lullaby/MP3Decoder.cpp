@@ -33,7 +33,7 @@ MP3Decoder::MP3Decoder(Data *data, int bufferSize)
 : Decoder(data, bufferSize)
 {
 	// initialize mp3 handle
-	if(drmp3_init_memory(&mp3, data->getData(), data->getSize(), nullptr, nullptr) == 0)
+	if(drmp3_init_memory(&mp3, data->getData(), data->getSize(), nullptr) == 0)
 		throw love::Exception("Could not read mp3 data.");
 
 	sampleRate = mp3.sampleRate;
