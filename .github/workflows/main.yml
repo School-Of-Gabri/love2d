@@ -43,15 +43,16 @@ jobs:
   windows-os:
     runs-on: windows-latest
     strategy:
+      fail-fast: false
       matrix:
-        platform: [Win32, x64]
+        platform: [Win32, x64, ARM64]
     steps:
     - name: Clone Megasource
       uses: actions/checkout@v2
       with:
         path: megasource
-        repository: love2d/megasource
-        ref: 12.x
+        repository: MikuAuahDark/love-megasource
+        ref: windows-arm
     - name: Checkout
       uses: actions/checkout@v2
       with:
