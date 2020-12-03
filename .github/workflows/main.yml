@@ -44,14 +44,14 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        platform: [Win32, x64]
+        platform: [Win32, x64, ARM64]
     steps:
     - name: Clone Megasource
       uses: actions/checkout@v2
       with:
         path: megasource
-        repository: love2d/megasource
-        ref: 12.x
+        repository: MikuAuahDark/love-megasource
+        ref: windows-arm-rework
     - name: Checkout
       uses: actions/checkout@v2
       with:
