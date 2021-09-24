@@ -41,7 +41,7 @@ jobs:
         name: love.AppImage
         path: build/love.AppImage
   windows-os:
-    runs-on: windows-latest
+    runs-on: windows-latest-ownmega
     strategy:
       matrix:
         platform: [Win32, x64, ARM64]
@@ -69,3 +69,4 @@ jobs:
       with:
         name: love-windows-${{ matrix.platform }}
         path: install
+  
